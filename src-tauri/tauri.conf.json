@@ -1,0 +1,120 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "waifu2x-gui",
+    "version": "0.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "fs": {
+        "all": false,
+        "readFile": true,
+        "writeFile": true,
+        "readDir": true,
+        "copyFile": true,
+        "createDir": true,
+        "removeDir": true,
+        "removeFile": true,
+        "renameFile": true,
+        "exists": true,
+        "scope": [
+          "$DESKTOP",
+          "$DESKTOP/*",
+          "$DOWNLOAD",
+          "$DOWNLOAD/*",
+          "$DOCUMENT",
+          "$DOCUMENT/*",
+          "$PICTURE",
+          "$PICTURE/*",
+          "$AUDIO",
+          "$AUDIO/*",
+          "$VIDEO",
+          "$VIDEO/*"
+        ]
+      },
+      "os": {
+        "all": true
+      },
+      "path": {
+        "all": true
+      },
+      "dialog": {
+        "all": false,
+        "save": true
+      },
+      "shell": {
+        "all": true,
+        "execute": true,
+        "open": true,
+        "sidecar": true,
+        "scope": [
+          {
+            "name": "uname-o",
+            "cmd": "uname",
+            "args": ["-o"]
+          },
+          {
+            "name": "uname-m",
+            "cmd": "uname",
+            "args": ["-m"]
+          },
+          {
+            "name": "run-waifu2x-for-apple-silicon-macos",
+            "cmd": "/opt/homebrew/bin/waifu2x",
+            "args": true
+          },
+          {
+            "name": "run-waifu2x-for-intel-macos",
+            "cmd": "/usr/local/bin/waifu2x",
+            "args": true
+          },
+          {
+            "name": "run-waifu2x-for-linux",
+            "cmd": "/home/linuxbrew/.linuxbrew/bin/waifu2x",
+            "args": true
+          },
+          {
+            "name": "ls",
+            "cmd": "ls",
+            "args": [{ "validator": "\\S+" }]
+          }
+        ]
+      }
+    },
+    "bundle": {
+      "active": true,
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.treetips.www",
+      "targets": "all"
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "waifu2x-gui",
+        "width": 1000,
+        "height": 720,
+        "fileDropEnabled": true
+      }
+    ]
+  }
+}
