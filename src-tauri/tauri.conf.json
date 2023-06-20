@@ -26,17 +26,17 @@
         "exists": true,
         "scope": [
           "$DESKTOP",
-          "$DESKTOP/*",
+          "$DESKTOP/**/*",
           "$DOWNLOAD",
-          "$DOWNLOAD/*",
+          "$DOWNLOAD/**/*",
           "$DOCUMENT",
-          "$DOCUMENT/*",
+          "$DOCUMENT/**/*",
           "$PICTURE",
-          "$PICTURE/*",
+          "$PICTURE/**/*",
           "$AUDIO",
-          "$AUDIO/*",
+          "$AUDIO/**/*",
           "$VIDEO",
-          "$VIDEO/*"
+          "$VIDEO/**/*"
         ]
       },
       "os": {
